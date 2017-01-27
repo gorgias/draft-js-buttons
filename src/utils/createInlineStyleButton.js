@@ -17,7 +17,7 @@ export default ({ style, children }) => (
 
     preventBubblingUp = (event) => { event.preventDefault(); }
 
-    styleIsActive = () => this.props.getEditorState().getCurrentInlineStyle().has(style);
+    styleIsActive = () => this.props.getEditorState() && this.props.getEditorState().getCurrentInlineStyle().has(style);
 
     render() {
       const { theme } = this.props;
