@@ -9,6 +9,7 @@ export default ({ children }) => (
   class linkButton extends Component {
 
     activate = (event) => {
+      console.log(event);
       event.preventDefault();
       event.stopPropagation();
       const url = window.prompt('Enter/Paste URL...');
@@ -31,10 +32,10 @@ export default ({ children }) => (
           )
         );
       }
-      EditorState.forceSelection(
+      this.props.setEditorState(EditorState.forceSelection(
         editorState,
         editorState.getCurrentContent().getSelectionAfter()
-      );
+      ));
     }
 
     preventBubblingUp = (event) => { event.preventDefault(); }
